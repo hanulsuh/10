@@ -1,9 +1,22 @@
 #include <stdio.h>
-#include <string.h>
+#include <stdlib.h>
 
-void main(void) 
+int main(void) 
 {
-	char str[30] = "happy C programming";
+	FILE *fp;
+	char input[100];
+	int i;
 	
-	printf("string %s length : %d\n", str, strlen(str));	
+	fp = fopen("sample.txt", "w");
+	
+	for(i=0; i<3; i++)
+	{
+		printf("input a word : ");
+		scanf("%s", input);
+		fprintf(fp, "%s\n", input);
+	}
+	
+	fclose(fp);
+	
+	return 0;
 }
